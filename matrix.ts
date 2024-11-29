@@ -10,7 +10,6 @@ namespace matrix {
     }
 
     function flattenArray(array: any[]): any[] {
-        console.log("flatten array: " + array.join(", "));
         let result: any[] = [];
         for (const item of array) {
             if (Array.isArray(item)) {
@@ -30,14 +29,12 @@ namespace matrix {
 
     //% block="add row %data to %matrix"
     export function addRow(data: any[], matrix: Matrix<number>) {
-        console.log(Array.isArray(data[0]));
         data = flattenArray(data);
         if (matrix.data.length) {
             data.length = matrix.data[0].length;
             data = data.map(item => item === undefined ? 0 : item);
         }
         matrix.data.push(data);
-        console.log(matrix.data[0]);
     }
 
     //% block="%matrix item at %row %col"
