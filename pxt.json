@@ -1,5 +1,5 @@
 {
-    "name": "MakeCode's Limits",
+    "name": "Matrix Extension",
     "description": "",
     "dependencies": {
         "device": "*"
