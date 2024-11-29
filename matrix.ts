@@ -39,4 +39,14 @@ namespace matrix {
         matrix.data.push(data);
         console.log(matrix.data[0]);
     }
+
+    //% block="%matrix item at %row %col"
+    export function getItem(matrix: Matrix<number>, row: number, col: number): number {
+        return matrix.data[row][col]
+    }
+
+    //% block="%matrix row at %row"
+    export function getColumn(matrix: Matrix<number>, row: number): number[] {
+        return matrix.data[row]
+    }
 }
