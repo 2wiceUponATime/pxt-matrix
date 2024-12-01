@@ -6,6 +6,7 @@
         "device": "*"
     },
     "files": [
+        "main.blocks",
         "main.ts",
         "README.md",
         "assets.json",
@@ -21,5 +22,5 @@
     "supportedTargets": [
         "arcade"
     ],
-    "preferredEditor": "tsprj"
+    "preferredEditor": "blocksprj"
 }
