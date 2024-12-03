@@ -1,4 +1,5 @@
-//% weight=100 color=#0fbc11 icon="\uf00a"
+//% weight=51 color=#00c0b0 icon="\uf00a"
+//% advanced=true
 namespace matrix {
     //% block
     export class Matrix<T> {
@@ -22,12 +23,15 @@ namespace matrix {
         return result;
     }
 
+    //% blockId=empty
     //% block="empty matrix"
     export function empty(): Matrix<number> {
         return new Matrix([])
     }
 
-    //% block="add row %data to %matrix"
+    //% block="add row $data to $matrix"
+    //% data.shadow="lists_create_with"
+    //% matrix.shadow="empty"
     export function addRow(data: any[], matrix: Matrix<number>) {
         data = flattenArray(data);
         if (matrix.data.length) {
@@ -37,13 +41,40 @@ namespace matrix {
         matrix.data.push(data);
     }
 
-    //% block="%matrix item at %row %col"
+    //% block="$matrix item at $row $col"
+    //% matrix.shadow="empty"
     export function getItem(matrix: Matrix<number>, row: number, col: number): number {
         return matrix.data[row][col]
     }
 
-    //% block="%matrix row at %row"
-    export function getColumn(matrix: Matrix<number>, row: number): number[] {
+    //% block="$matrix row at $row"
+    //% matrix.shadow="empty"
+    export function getRow(matrix: Matrix<number>, row: number): number[] {
         return matrix.data[row]
+    }
+
+    //% block="$matrix data"
+    export function getData(matrix: Matrix<number>): number[][] {
+        return matrix.data;
+    }
+
+    //% block="iterate over $matrix with "
+    //% handlerStatement=1
+    //% matrix.shadow="empty"
+    export function forIn(matrix: Matrix<number>, callback: (item: number) => void) {
+        for (const row of matrix.data) {
+            for (const item of row) {
+                callback(item);
+            }
+        }
+    }
+
+    //% block="iterate over $matrix rows with "
+    //% handlerStatement=1
+    //% matrix.shadow="empty"
+    export function forInRows(matrix: Matrix<number>, callback: (item: number[]) => void) {
+        for (const row of matrix.data) {
+            callback(row);
+        }
     }
 }
